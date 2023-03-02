@@ -1,0 +1,17 @@
+[Unit]
+Description=Audio converter service
+After=network.target
+#StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ec2-user
+ExecStart=/home/ec2-user/audio_converter/audio_converter.sh
+ExecStop=/home/ec2-user/audio_converter/audio_converter_stop.sh
+StandardOutput=file:/var/log/audio_converter/log.log
+StandardError=file:/var/log/audio_converter/error.log
+
+[Install]
+WantedBy=multi-user.target

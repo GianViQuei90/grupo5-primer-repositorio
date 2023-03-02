@@ -1,0 +1,1 @@
+ps ax | grep audio_converter | grep -v grep | awk '{print $1}'  | xargs -i kill -9 {}
